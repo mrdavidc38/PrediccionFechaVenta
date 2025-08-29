@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Bussiness", "2.Bussiness", "{D877A4B9-41AF-4463-B50D-20B9040FB8E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DataAccess", "3.DataAccess", "{90EE5A58-91A6-4D28-B963-75D3B09F9085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependencias", "dependencias", "{95431FAA-6CE0-4926-B282-4BBE0CC59F26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "entity", "entity", "{0A27E8F8-B9BA-4442-B7B9-9C2BBD5FEF73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utility", "utility", "{84B56137-AA93-4BC9-9F5C-5D0CE68B8E72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentacion", "1.Presentacion", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesDatePrediction.API", "SalesDatePrediction.API\SalesDatePrediction.API\SalesDatePrediction.API.csproj", "{5E8B8973-060F-42C8-B5C7-CBE18A06932A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesDatePrediction.BLL", "SalesDatePrediction.BLL\SalesDatePrediction.BLL\SalesDatePrediction.BLL.csproj", "{7FAA542B-BA1D-46B6-ABDD-E40E07118DC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesDatePrediction.DAL", "SalesDatePrediction.DAL\SalesDatePrediction.DAL\SalesDatePrediction.DAL.csproj", "{1CE19C75-B048-478F-86CD-493DCB8B8A48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesDatePrediction.IOC", "SalesDatePrediction.IOC\SalesDatePrediction.IOC.csproj", "{0DDB0BB6-5487-4F25-BEF9-F98C9114D3E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DTO", "DTO", "{6B052512-D106-4D66-961C-135B69155B47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesDatePrediction.DTO", "SalesDatePrediction.DTO\SalesDatePrediction.DTO.csproj", "{AD4FD692-A438-4BAF-8905-2A0911BF8160}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesDatePrediction.Model", "SalesDatePrediction.Model\SalesDatePrediction.Model.csproj", "{F1CA5DF5-E563-44B7-8FAF-F457EAC40DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesDatePrediction.Utility", "SalesDatePrediction.Utility\SalesDatePrediction.Utility.csproj", "{B5F1AA11-8DD3-48EB-B370-9A59E38CC7FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E8B8973-060F-42C8-B5C7-CBE18A06932A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E8B8973-060F-42C8-B5C7-CBE18A06932A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E8B8973-060F-42C8-B5C7-CBE18A06932A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E8B8973-060F-42C8-B5C7-CBE18A06932A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FAA542B-BA1D-46B6-ABDD-E40E07118DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAA542B-BA1D-46B6-ABDD-E40E07118DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FAA542B-BA1D-46B6-ABDD-E40E07118DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAA542B-BA1D-46B6-ABDD-E40E07118DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE19C75-B048-478F-86CD-493DCB8B8A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE19C75-B048-478F-86CD-493DCB8B8A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE19C75-B048-478F-86CD-493DCB8B8A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE19C75-B048-478F-86CD-493DCB8B8A48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDB0BB6-5487-4F25-BEF9-F98C9114D3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDB0BB6-5487-4F25-BEF9-F98C9114D3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDB0BB6-5487-4F25-BEF9-F98C9114D3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDB0BB6-5487-4F25-BEF9-F98C9114D3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4FD692-A438-4BAF-8905-2A0911BF8160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4FD692-A438-4BAF-8905-2A0911BF8160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4FD692-A438-4BAF-8905-2A0911BF8160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4FD692-A438-4BAF-8905-2A0911BF8160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1CA5DF5-E563-44B7-8FAF-F457EAC40DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1CA5DF5-E563-44B7-8FAF-F457EAC40DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1CA5DF5-E563-44B7-8FAF-F457EAC40DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1CA5DF5-E563-44B7-8FAF-F457EAC40DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F1AA11-8DD3-48EB-B370-9A59E38CC7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F1AA11-8DD3-48EB-B370-9A59E38CC7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F1AA11-8DD3-48EB-B370-9A59E38CC7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F1AA11-8DD3-48EB-B370-9A59E38CC7FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E8B8973-060F-42C8-B5C7-CBE18A06932A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7FAA542B-BA1D-46B6-ABDD-E40E07118DC8} = {D877A4B9-41AF-4463-B50D-20B9040FB8E9}
+		{1CE19C75-B048-478F-86CD-493DCB8B8A48} = {90EE5A58-91A6-4D28-B963-75D3B09F9085}
+		{0DDB0BB6-5487-4F25-BEF9-F98C9114D3E6} = {95431FAA-6CE0-4926-B282-4BBE0CC59F26}
+		{AD4FD692-A438-4BAF-8905-2A0911BF8160} = {6B052512-D106-4D66-961C-135B69155B47}
+		{F1CA5DF5-E563-44B7-8FAF-F457EAC40DCA} = {0A27E8F8-B9BA-4442-B7B9-9C2BBD5FEF73}
+		{B5F1AA11-8DD3-48EB-B370-9A59E38CC7FA} = {84B56137-AA93-4BC9-9F5C-5D0CE68B8E72}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20650DFD-EB6E-4A4B-BA43-EBEFA2183C12}
+	EndGlobalSection
+EndGlobal

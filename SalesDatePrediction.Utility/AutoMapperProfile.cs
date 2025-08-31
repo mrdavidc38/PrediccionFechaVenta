@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using SalesDatePrediction.DTO;
+using SalesDatePrediction.Model.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +11,10 @@ namespace SalesDatePrediction.Utility
 {
     public class AutoMapperProfile : Profile
     {
-        protected AutoMapperProfile()
+        public AutoMapperProfile()
         {
+            CreateMap<Employee, EmployeeDTO>().ReverseMap();
+            CreateMap<Order, OrderDTO>().ReverseMap();
         }
 
     }

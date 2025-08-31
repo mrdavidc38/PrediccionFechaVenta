@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalesDatePrediction.Model.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,7 +14,9 @@ namespace SalesDatePrediction.DAL.Repositorios.Contratos
         Task<TModel> Crear(TModel modelo);
         Task<bool> Editar(TModel modelo);
         Task<bool> Eliminar(TModel modelo);
+        Task<int> Consultar(Expression<Func<TModel, bool>> filtro = null);
 
-        Task<IQueryable<TModel>> Consultar(Expression<Func<TModel, bool>> filtro = null);
+        //Task<IQueryable<TModel>> Consultar(int pageNumber, int pageSize, Expression<Func<TModel, bool>> filtro = null);
+        Task<IQueryable<TModel>> Consultar(int pageNumber, int pageSize, Expression<Func<TModel, bool>> filtro = null);
     }
 }

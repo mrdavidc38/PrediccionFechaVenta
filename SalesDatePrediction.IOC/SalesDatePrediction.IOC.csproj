@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SalesDatePrediction.BLL\SalesDatePrediction.BLL\SalesDatePrediction.BLL.csproj" />
     <ProjectReference Include="..\SalesDatePrediction.Model\SalesDatePrediction.Model.csproj" />
     <ProjectReference Include="..\SalesDatePrediction.Utility\SalesDatePrediction.Utility.csproj" />
   </ItemGroup>

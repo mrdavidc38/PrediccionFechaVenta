@@ -11,6 +11,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SalesDatePrediction.BLL\SalesDatePrediction.BLL\SalesDatePrediction.BLL.csproj" />
+    <ProjectReference Include="..\..\SalesDatePrediction.DTO\SalesDatePrediction.DTO.csproj" />
+    <ProjectReference Include="..\..\SalesDatePrediction.IOC\SalesDatePrediction.IOC.csproj" />
+    <ProjectReference Include="..\..\SalesDatePrediction.Model\SalesDatePrediction.Model.csproj" />
   </ItemGroup>
 
 </Project>

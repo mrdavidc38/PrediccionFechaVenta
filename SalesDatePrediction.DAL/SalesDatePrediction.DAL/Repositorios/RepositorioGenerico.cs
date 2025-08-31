@@ -1,5 +1,7 @@
-﻿using SalesDatePrediction.DAL.Repositorios.Contratos;
+﻿using Microsoft.EntityFrameworkCore;
+using SalesDatePrediction.DAL.Repositorios.Contratos;
 using SalesDatePrediction.Model.Contexto;
+using SalesDatePrediction.Model.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +20,94 @@ namespace SalesDatePrediction.DAL.Repositorios
             _dbFechaVentasContext = dbFechaVentasContext;
         }
 
-        public Task<IQueryable<TModel>> Consultar(Expression<Func<TModel, bool>> filtro = null)
+        //public async Task<IQueryable<TModel>> Consultar(Expression<Func<TModel, bool>> filtro = null)
+        //{
+        //    try
+        //    {
+        //        IQueryable<TModel> queryModelo = filtro == null ? _dbFechaVentasContext.Set<TModel>() : _dbFechaVentasContext.Set<TModel>().Where(filtro);
+
+        //        return  queryModelo;
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw;
+        //    }
+        //}
+        public async Task<int> Consultar(Expression<Func<TModel, bool>> filtro = null)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                IQueryable<TModel> queryModelo = filtro == null ? _dbFechaVentasContext.Set<TModel>() : _dbFechaVentasContext.Set<TModel>().Where(filtro);
+                var total = await queryModelo.CountAsync();
+                //var data = await  queryModelo
+                //.Skip((pageNumber - 1) * pageSize)
+                //.Take(pageSize).ToListAsync();
+
+                //IQueryable<TModel> data = queryModelo
+                //.Skip((pageNumber - 1) * pageSize)
+                //.Take(pageSize);
+
+
+                //return new paginacion<TModel>
+                //{
+                //    TotalRecords = total
+                //    //Records = data,
+                //    //data = total
+                //};
+                return total;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        public async Task<IQueryable<TModel>> Consultar(int pageNumber, int pageSize, Expression<Func<TModel, bool>> filtro = null)
+        {
+            try
+            {
+              
+                IQueryable<TModel> queryModelo = filtro == null ? _dbFechaVentasContext.Set<TModel>() : _dbFechaVentasContext.Set<TModel>().Where(filtro);
+                var total = await queryModelo.CountAsync();
+                //var data = await  queryModelo
+                //.Skip((pageNumber - 1) * pageSize)
+                //.Take(pageSize).ToListAsync();
+
+                IQueryable<TModel> data = queryModelo
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize);
+
+
+                //return new paginacion<TModel>
+                //{
+                //    TotalRecords = total
+                //    //Records = data,
+                //    //data = total
+                //};
+                return data;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
-        public Task<TModel> Crear(TModel modelo)
+        public async Task<TModel> Crear(TModel modelo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbFechaVentasContext.Set<TModel>().Add(modelo);
+                await _dbFechaVentasContext.SaveChangesAsync();
+                return modelo;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Task<bool> Editar(TModel modelo)

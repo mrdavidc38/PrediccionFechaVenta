@@ -30,7 +30,7 @@ namespace SalesDatePrediction.BLL.Servicios
             {
                 var results = new List<CustomerOrdenPrediccionResultado>();
                 paginacion<Customer>  resultado = new paginacion<Customer>();
-                paginacion<CustomerOrdenPrediccionResultado> resultado2 = new paginacion<CustomerOrdenPrediccionResultado>();
+                paginacion<CustomerOrdenPrediccionResultado> resultadoFinal = new paginacion<CustomerOrdenPrediccionResultado>();
                 var listaCustomersCount = 0;
                 if (filtro != "filtro")
                 {
@@ -76,11 +76,10 @@ namespace SalesDatePrediction.BLL.Servicios
 
                     results.Add(result);
                 }
-                resultado2.Records = results.OrderBy(r => r.NextPredictedOrder).ToList();
-                resultado2.TotalRecords = listaCustomersCount;
-                //return results.OrderBy(r => r.NextPredictedOrder).ToList();
-                //return _mapper.Map<List<Customer>>(listaCustomers.ToList());
-                return resultado2;
+                resultadoFinal.Records = results.OrderBy(r => r.NextPredictedOrder).ToList();
+                resultadoFinal.TotalRecords = listaCustomersCount;
+
+                return resultadoFinal;
             }
             catch (Exception)
             {

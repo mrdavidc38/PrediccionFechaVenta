@@ -30,13 +30,23 @@ namespace SalesDatePrediction.BLL.Servicios
             var results = new List<Order>();
             paginacion<Order> resultado = new paginacion<Order>();
        
-            var listaCustomers = await _OrderRepositorio.Consultar(pageNumber, pageSize, u => u.Custid == custId);
-            var listaCustomerss = await _OrderRepositorio.Consultar( u => u.Custid == custId);
-            resultado.TotalRecords = listaCustomerss;
-            resultado.Records = listaCustomers.ToList();
+            var listaOrdenes = await _OrderRepositorio.Consultar(pageNumber, pageSize, u => u.Custid == custId);
+            var listaOrders= await _OrderRepositorio.Consultar( u => u.Custid == custId);
+            resultado.TotalRecords = listaOrders;
+            resultado.Records = listaOrdenes.ToList();
             return resultado;
         }
+        //public async Task<paginacion<Order>> ObtenerOrdenesOrdenadas(int pageNumber, int pageSize, int custId)
+        //{
+        //    var results = new List<Order>();
+        //    paginacion<Order> resultado = new paginacion<Order>();
 
+        //    var listaOrdenes = await _OrderRepositorio.Consultar(pageNumber, pageSize, u => u.Custid == custId);
+        //    var listaOrders = await _OrderRepositorio.Consultar(u => u.Custid == custId);
+        //    resultado.TotalRecords = listaOrders;
+        //    resultado.Records = listaOrdenes.ToList();
+        //    return resultado;
+        //}
         public async Task<paginacion<Order>> CrearOrden(OrderDTO model)
         {
             var results = new List<Order>();

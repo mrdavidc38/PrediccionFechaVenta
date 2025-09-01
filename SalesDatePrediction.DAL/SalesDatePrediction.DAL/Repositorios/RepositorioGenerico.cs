@@ -120,9 +120,18 @@ namespace SalesDatePrediction.DAL.Repositorios
             throw new NotImplementedException();
         }
 
-        public Task<TModel> Obtener(Expression<Func<TModel, bool>> filtro)
+        public async Task<TModel> Obtener(Expression<Func<TModel, bool>> filtro)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TModel modelo = await _dbFechaVentasContext.Set<TModel>().FirstOrDefaultAsync(filtro);
+                return modelo;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

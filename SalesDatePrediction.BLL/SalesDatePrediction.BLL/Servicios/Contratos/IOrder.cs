@@ -12,7 +12,7 @@ namespace SalesDatePrediction.BLL.Servicios.Contratos
     {
         Task<paginacion<Order>> ObtenerOrdenes(int pageNumber, int pageSize, int custId);
         Task<paginacion<Order>> CrearOrden(OrderDTO model);
-
+        //Task<paginacion<Order>> ObtenerOrdenesOrdenadas();
 
     }
 }

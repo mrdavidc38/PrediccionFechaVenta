@@ -11,7 +11,7 @@ namespace SalesDatePrediction.BLL.Servicios.Contratos
     {
         //Task<List<Customer>> ObtenerClientes(int pageNumber, int pageSize);
 
-        Task<paginacion<CustomerOrdenPrediccionResultado>> ObtenerClientes(int pageNumber, int pageSize);
+        Task<paginacion<CustomerOrdenPrediccionResultado>> ObtenerClientes(int pageNumber, int pageSize, string filtro);
 
     }
 }

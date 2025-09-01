@@ -24,25 +24,43 @@ namespace SalesDatePrediction.BLL.Servicios
             //_mapper = mapper;
         }
 
-        public async Task<paginacion<CustomerOrdenPrediccionResultado>> ObtenerClientes(int pageNumber, int pageSize)
+        public async Task<paginacion<CustomerOrdenPrediccionResultado>> ObtenerClientes(int pageNumber, int pageSize, string filtro)
         {
             try
             {
                 var results = new List<CustomerOrdenPrediccionResultado>();
                 paginacion<Customer>  resultado = new paginacion<Customer>();
                 paginacion<CustomerOrdenPrediccionResultado> resultado2 = new paginacion<CustomerOrdenPrediccionResultado>();
-                var listaCustomers = await _categoriaRepositorio.Consultar(pageNumber,  pageSize);
-                var listaCustomerss = await _categoriaRepositorio.Consultar();
-                var lirtaCustomersOrder = listaCustomers.Include(o => o.Orders).ToList();
-                resultado.Records = lirtaCustomersOrder;
-                resultado.TotalRecords = lirtaCustomersOrder.Count();
+                var listaCustomersCount = 0;
+                if (filtro != "filtro")
+                {
+                    var listaCustomers = await _categoriaRepositorio.Consultar(pageNumber, pageSize, u => u.Companyname.ToLower().Contains(filtro));
+                     listaCustomersCount = await _categoriaRepositorio.Consultar();
+                    var lirtaCustomersOrder = listaCustomers.Include(o => o.Orders).ToList();
+                    resultado.Records = lirtaCustomersOrder;
+                    resultado.TotalRecords = lirtaCustomersOrder.Count();
+                    //    lirtaCustomersOrder = lirtaCustomersOrder.Where(u =>
+                    //u.Contactname.ToLower().Contains(filtro)).ToList();
+                }
+                else {
+                    var listaCustomers = await _categoriaRepositorio.Consultar(pageNumber, pageSize);
+                     listaCustomersCount = await _categoriaRepositorio.Consultar();
+                    var lirtaCustomersOrder = listaCustomers.Include(o => o.Orders).ToList();
+                    resultado.Records = lirtaCustomersOrder;
+                    resultado.TotalRecords = lirtaCustomersOrder.Count();
+                }
+                //    var listaCustomers = await _categoriaRepositorio.Consultar(pageNumber, pageSize);
+                //var listaCustomersCount = await _categoriaRepositorio.Consultar();
+                //var lirtaCustomersOrder = listaCustomers.Include(o => o.Orders).ToList();
+ 
+                //resultado.Records = lirtaCustomersOrder;
+                //resultado.TotalRecords = lirtaCustomersOrder.Count();
 
                 foreach (var customer in resultado.Records)
                 {
                     if (customer.Orders == null || customer.Orders.Count == 0)
                         continue;
 
-                    // Ordenar las órdenes por fecha
                     var orderedOrders = customer.Orders
                         .OrderBy(o => o.Orderdate)
                         .ToList();
@@ -59,7 +77,7 @@ namespace SalesDatePrediction.BLL.Servicios
                     results.Add(result);
                 }
                 resultado2.Records = results.OrderBy(r => r.NextPredictedOrder).ToList();
-                resultado2.TotalRecords = listaCustomerss;
+                resultado2.TotalRecords = listaCustomersCount;
                 //return results.OrderBy(r => r.NextPredictedOrder).ToList();
                 //return _mapper.Map<List<Customer>>(listaCustomers.ToList());
                 return resultado2;

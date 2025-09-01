@@ -20,7 +20,7 @@ namespace SalesDatePrediction.API.Controllers
 
         [HttpGet]
         [Route("lista")]
-        public async Task<IActionResult> lista(int pageNumber, int pageSize)
+        public async Task<IActionResult> lista(int pageNumber, int pageSize, string filtro)
         {
 
 
@@ -28,7 +28,7 @@ namespace SalesDatePrediction.API.Controllers
             try
             {
                 rsp.status = true;
-                rsp.value = await _customerService.ObtenerClientes(pageNumber, pageSize);
+                rsp.value = await _customerService.ObtenerClientes(pageNumber, pageSize, filtro);
 
 
             }

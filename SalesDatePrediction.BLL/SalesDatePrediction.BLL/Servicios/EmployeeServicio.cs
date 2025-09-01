@@ -25,9 +25,9 @@ namespace SalesDatePrediction.BLL.Servicios
         public async Task<paginacion<Employee>> ObtenerEmpleados(int pageNumber, int pageSize)
         {
             paginacion<Employee> resultado = new paginacion<Employee>();
-            var listaCustomers = await _empleadoRepositorio.Consultar(pageNumber, pageSize);
-            resultado.TotalRecords = listaCustomers.ToList().Count();
-            resultado.Records = listaCustomers.ToList();
+            var listaEmployeed= await _empleadoRepositorio.Consultar(pageNumber, pageSize);
+            resultado.TotalRecords = listaEmployeed.ToList().Count();
+            resultado.Records = listaEmployeed.ToList();
             return resultado;
         }
     }

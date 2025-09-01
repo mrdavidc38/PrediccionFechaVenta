@@ -26,7 +26,7 @@ namespace SalesDatePrediction.BLL.Servicios
         public async Task<paginacion<OrderDetail>> CrearDetalleOrden(OrderDetail model)
         {
             paginacion<OrderDetail> resultado = new paginacion<OrderDetail>();
-            var listaCustomers = await _OrderDetailRepositorio.Crear(model);
+            var detailCustomers = await _OrderDetailRepositorio.Crear(model);
 
             return resultado;
         }

@@ -46,17 +46,20 @@ namespace SalesDatePrediction.BLL.Servicios
 
                 var modelo = _mapper.Map<Order>(model);
                 modelo.OrderDetails = null;
-                var listaCustomers = await _OrderRepositorio.Crear(modelo);
-                if (listaCustomers.Orderid == 0)
+                var listaOrder = await _OrderRepositorio.Crear(modelo);
+                if (listaOrder.Orderid == 0)
                 {
                     throw new TaskCanceledException("No se pudo crear el producto");
                 }
-                var t = model.OrderDetails.First();
-                t.Orderid = listaCustomers.Orderid;
+                var details = model.OrderDetails.First();
+                details.Orderid = listaOrder.Orderid;
                 //t.Qty = listaCustomers.q;
-                t.Productid = model.OrderDetails.First().Productid;
-                var g = await _OrderDetailRepositorio.Crear(t);
-
+                details.Productid = model.OrderDetails.First().Productid;
+                var altaDetail = await _OrderDetailRepositorio.Crear(details);
+                if (altaDetail.Orderid == 0)
+                {
+                    throw new TaskCanceledException("No se pudo crear el detalle");
+                }
                 //resultado.TotalRecords = listaCustomers.ToList().Count();
                 //resultado.Records = listaCustomers.ToList();
             }

@@ -59,7 +59,7 @@ namespace SalesDatePrediction.BLL.Servicios
                 var listaOrder = await _OrderRepositorio.Crear(modelo);
                 if (listaOrder.Orderid == 0)
                 {
-                    throw new TaskCanceledException("No se pudo crear el producto");
+                    throw new TaskCanceledException("No se pudo crear la orden");
                 }
                 var details = model.OrderDetails.First();
                 details.Orderid = listaOrder.Orderid;

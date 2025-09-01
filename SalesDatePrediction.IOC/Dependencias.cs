@@ -1,6 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SalesDatePrediction.BLL.Servicios;
+using SalesDatePrediction.BLL.Servicios.Contratos;
+using SalesDatePrediction.DAL.Repositorios;
+using SalesDatePrediction.DAL.Repositorios.Contratos;
 using SalesDatePrediction.Model.Contexto;
 using SalesDatePrediction.Utility;
 using System;
@@ -20,8 +24,14 @@ namespace SalesDatePrediction.IOC
                 var con = configuration.GetConnectionString("cadenaSQL");
                 options.UseSqlServer(configuration.GetConnectionString("cadenaSQL"));
             });
-
+            services.AddTransient(typeof(IGenericRepository<>), typeof(RepositorioGenerico<>));
             services.AddAutoMapper(typeof(AutoMapperProfile));
+            services.AddScoped<ICustomer, CustomerServicio>();
+            services.AddScoped<IOrder, OrderServicio>();
+
+            services.AddScoped<IShipper, ShipperServicio>();
+            services.AddScoped<IProduct, ProductServicio>();
+            services.AddScoped<IEmployee, EmployeeServicio>();
         }
 
         }

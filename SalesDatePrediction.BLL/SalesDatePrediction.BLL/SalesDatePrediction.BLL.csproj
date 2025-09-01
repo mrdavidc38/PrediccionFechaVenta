@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SalesDatePrediction.DAL\SalesDatePrediction.DAL\SalesDatePrediction.DAL.csproj" />
+    <ProjectReference Include="..\..\SalesDatePrediction.DTO\SalesDatePrediction.DTO.csproj" />
+    <ProjectReference Include="..\..\SalesDatePrediction.Model\SalesDatePrediction.Model.csproj" />
+  </ItemGroup>
+
 </Project>

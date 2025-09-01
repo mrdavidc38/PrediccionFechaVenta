@@ -14,7 +14,8 @@ namespace SalesDatePrediction.Utility
         public AutoMapperProfile()
         {
             CreateMap<Employee, EmployeeDTO>().ReverseMap();
-            CreateMap<Order, OrderDTO>().ReverseMap();
+            CreateMap<Order, OrderDTO>().ForMember(dest => dest.OrderDetails, opt => opt.Ignore()).ReverseMap();
+            //CreateMap<Order, OrderDTO>().ForMember(dest => dest.OrderDetails, opt => opt.Ignore()).ReverseMap();
         }
 
     }

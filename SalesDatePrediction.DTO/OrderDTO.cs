@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalesDatePrediction.Model.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,5 +36,7 @@ namespace SalesDatePrediction.DTO
         public string? Shippostalcode { get; set; }
 
         public string Shipcountry { get; set; } = null!;
+
+        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
 }

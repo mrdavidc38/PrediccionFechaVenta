@@ -14,14 +14,16 @@ namespace SalesDatePrediction.BLL.Servicios
     public class OrderServicio : IOrder
     {
         private readonly IGenericRepository<Order> _OrderRepositorio;
+        private readonly IGenericRepository<OrderDetail> _OrderDetailRepositorio;
         private readonly IMapper _mapper;
 
         public OrderServicio(IGenericRepository<Order> OrderRepositorio
-            , IMapper mapper
+            , IMapper mapper, IGenericRepository<OrderDetail> OrderDetailRepositorio
             )
         {
             _OrderRepositorio = OrderRepositorio;
             _mapper = mapper;
+            _OrderDetailRepositorio = OrderDetailRepositorio;
         }
         public async Task<paginacion<Order>> ObtenerOrdenes(int pageNumber, int pageSize, int custId)
         {
@@ -43,7 +45,18 @@ namespace SalesDatePrediction.BLL.Servicios
             {
 
                 var modelo = _mapper.Map<Order>(model);
+                modelo.OrderDetails = null;
                 var listaCustomers = await _OrderRepositorio.Crear(modelo);
+                if (listaCustomers.Orderid == 0)
+                {
+                    throw new TaskCanceledException("No se pudo crear el producto");
+                }
+                var t = model.OrderDetails.First();
+                t.Orderid = listaCustomers.Orderid;
+                //t.Qty = listaCustomers.q;
+                t.Productid = model.OrderDetails.First().Productid;
+                var g = await _OrderDetailRepositorio.Crear(t);
+
                 //resultado.TotalRecords = listaCustomers.ToList().Count();
                 //resultado.Records = listaCustomers.ToList();
             }

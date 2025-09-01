@@ -37,7 +37,7 @@ public partial class Order
 
     public virtual Employee Emp { get; set; } = null!;
 
-    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+    public virtual ICollection<OrderDetail>? OrderDetails { get; set; } = new List<OrderDetail>();
 
     public virtual Shipper Shipper { get; set; } = null!;
 }
